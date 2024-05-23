@@ -4,7 +4,7 @@
 
 ### 2024-05-23
 
-info
+We read into VIC, blowfish, and Solitaire ciphers and decided on doing our project with VIC.
 
 ### date y
 
@@ -15,7 +15,7 @@ info
 
 ### 2024-05-23
 
-info
+We read into VIC, blowfish, and Solitaire ciphers and decided on doing our project with VIC.
 
 ### date y
 
