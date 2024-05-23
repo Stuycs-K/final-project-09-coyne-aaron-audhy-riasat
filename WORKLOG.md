@@ -1,8 +1,8 @@
 # Work Log
 
-## GROUP MEMBER 1
+## AARON COYNE
 
-### date x
+### 2024-05-23
 
 info
 
@@ -11,9 +11,9 @@ info
 info
 
 
-## GROUP MEMBER 2
+## RIASAT AUDHY
 
-### date x
+### 2024-05-23
 
 info
 
