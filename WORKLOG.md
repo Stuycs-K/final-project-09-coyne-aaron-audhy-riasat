@@ -20,6 +20,7 @@ We read into VIC, blowfish, and Solitaire ciphers and decided on doing our proje
 ### 2024-05-24
 
 https://web.stanford.edu/class/archive/cs/cs108/cs108.1092/JavaBasicRefresher.pdf
+
 Read through this document in class to get refreshed on using Java for the project.
 
 ### date y
