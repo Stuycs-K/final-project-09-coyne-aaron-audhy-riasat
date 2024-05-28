@@ -13,6 +13,10 @@ Was absent from class.
 At home, I watched this video on the VIC cipher:
 https://www.youtube.com/watch?v=LeMD-XFgtVc
 
+### 2024-05-28
+
+Did a lot of research on each aspect of the VIC cipher (Straddling Checkerboard, Chain Addition, Modular addition / subtraction) and began planning out how we would do it in Java.
+
 
 ## RIASAT AUDHY
 
