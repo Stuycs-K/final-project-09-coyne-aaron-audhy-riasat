@@ -6,9 +6,11 @@
 
 We read into VIC, blowfish, and Solitaire ciphers and decided on doing our project with VIC.
 
-### date y
+### 2024-05-24
 
-info
+Was absent from class
+At home, I watched this video on the VIC cipher:
+https://www.youtube.com/watch?v=LeMD-XFgtVc
 
 
 ## RIASAT AUDHY
