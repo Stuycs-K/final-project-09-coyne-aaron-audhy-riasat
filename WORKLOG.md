@@ -30,4 +30,6 @@ https://web.stanford.edu/class/archive/cs/cs108/cs108.1092/JavaBasicRefresher.pd
 
 Read through this document in class to get refreshed on using Java for the project.
 
-### date y
+### 2024-05-28
+
+We started breaking down how we would implement the cipher, and learned how a bunch of the components work (Straddling Checkerboard, Chain Addition, Modular addition / subtraction).
