@@ -4,13 +4,13 @@ public class Util{
 
         int numDigits = 0;
         if (a > b) numDigits = a;
-        elese numDigits = b;
+        else numDigits = b;
         numDigits = String.valueOf(numDigits).length();
 
         for(int i = 0; i < numDigits; i++){
-            //
+            sum += (a%Math.pow(10,i+1) - a%Math.pow(10,i) + b%Math.pow(10,i+1) - b%Math.pow(10,i))%Math.pow(10,i+1);
         }
 
-        return 0;
+        return sum;
     }
 }
