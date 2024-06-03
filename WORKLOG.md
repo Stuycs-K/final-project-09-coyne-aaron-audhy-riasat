@@ -53,6 +53,6 @@ Continued learning about the components.
 
 Created the files to start coding. Currently working on implementing digit by digit modular (base 10) addition and subtraction. Will implement chain addition next.
 
-## 2024-06-03
+### 2024-06-03
 
 Finished implementing modAddition and modSubtraction. Halfway done with chain addition.
