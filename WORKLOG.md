@@ -25,6 +25,10 @@ Continued learning about the components.
 
 Working on implementing digit encode. Will implement sequencing next.
 
+### 2024-06-03
+
+Finished digit encode & working on sequencing.
+
 ## RIASAT AUDHY
 
 ### 2024-05-23
@@ -48,3 +52,7 @@ Continued learning about the components.
 ### 2024-05-30
 
 Created the files to start coding. Currently working on implementing digit by digit modular (base 10) addition and subtraction. Will implement chain addition next.
+
+## 2024-06-03
+
+Finished implementing modAddition and modSubtraction. Halfway done with chain addition.
