@@ -40,7 +40,12 @@ public class Util{
         return newNumber;
     }
     public static int chainAdditionDiscard(int num){
-        //
+        int numDigits = String.valueOf(num).length();
+        newNumber = 0;
+        for(int i = numDigits; i > 0; i--){
+            newNumber += chainAddition(num%Math.pow(10,i+1)-num%Math.pow(10,i),num);
+        }
         return 0;
     }
+    4390%10000 - 4390%1000
 }
