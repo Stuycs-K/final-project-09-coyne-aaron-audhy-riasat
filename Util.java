@@ -13,6 +13,7 @@ public class Util{
 
         return sum;
     }
+
     public static int modSubtraction(int a, int b){
         int diff = 0;
 
@@ -27,5 +28,19 @@ public class Util{
         }
 
         return diff;
+    }
+
+    public static int chainAddition(int num){
+        int numDigits = String.valueOf(num).length();
+        int addedDigits = 0;
+        int newNumber = num * Math.pow(10, numDigits);
+
+        newNumber += chainAdditionDiscard(num);
+
+        return newNumber;
+    }
+    public static int chainAdditionDiscard(int num){
+        //
+        return 0;
     }
 }
