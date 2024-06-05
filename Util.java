@@ -30,22 +30,21 @@ public class Util{
         return diff;
     }
 
-    public static int chainAddition(int num){
-        int numDigits = String.valueOf(num).length();
-        int addedDigits = 0;
-        int newNumber = num * Math.pow(10, numDigits);
+    // public static int chainAddition(int num){
+    //     int numDigits = String.valueOf(num).length();
+    //     int addedDigits = 0;
+    //     int newNumber = num * Math.pow(10, numDigits);
 
-        newNumber += chainAdditionDiscard(num);
+    //     newNumber += chainAdditionDiscard(num);
 
-        return newNumber;
-    }
+    //     return newNumber;
+    // }
     public static int chainAdditionDiscard(int num){
-        int numDigits = String.valueOf(num).length();
-        newNumber = 0;
-        for(int i = numDigits; i > 0; i--){
-            newNumber += chainAddition(num%Math.pow(10,i+1)-num%Math.pow(10,i),num);
+        String newNumString = "";
+        String stringVersion = String.valueOf(num);
+        for(int i = 0; i < stringVersion.length(); i++){
+            newNumString = newNumString.concat(String.valueOf(modAddition(stringVersion.charAt(i)-'0', stringVersion.charAt((i+1)%stringVersion.length())-'0')));
         }
-        return 0;
+        return Integer.parseInt(newNumString);
     }
-    4390%10000 - 4390%1000
 }
