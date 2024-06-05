@@ -1,9 +1,9 @@
 public class Util{
     //
     public static void main(String[] args){
-        int[] digits = digitEncode(new int[]{9,0,2,1,0}, new int[]{6,0,1,3,5,8,9,4,2,7});
+        //int[] digits = digitEncode(new int[]{9,0,2,1,0}, new int[]{6,0,1,3,5,8,9,4,2,7});
         
-        System.out.println(arrayToString(sequenceLetters(EDFLO)));
+        System.out.println(arrayToString(sequenceLetters("OCTOPUS")));
     }
     public static int[] digitEncode(int[] input, int[] key){
         int[] output = new int[input.length];
@@ -25,12 +25,17 @@ public class Util{
 
     public static int[] sequenceLetters (String input){
         int[] temp = new int[input.length()];
-        int[] output = new int[input.length()]
+        int[] output = new int[input.length()];
         for(int i = 0; i < input.length(); i++){
-            temp[i] = (int)((char)(input.Substring(i,i+1)));
+            temp[i] = (int)(input.charAt(i));
+           // System.out.println((int)(input.charAt(i)));
         }
-        int[] tempNew = insertionSort[temp];
-        
+        int[] tempOld = new int[temp.length];
+        for(int i = 0; i < temp.length; i++)
+            tempOld[i] = temp[i];
+        int[] tempNew = insertionSort(temp);
+        //System.out.println(arrayToString(tempOld));
+        //System.out.println(arrayToString(tempNew));
         int[] numbers = new int[]{1,2,3,4,5,6,7,8,9,0};
         boolean[] isUsed = new boolean[temp.length];
         for(int i = 0; i < isUsed.length; i++){
@@ -38,10 +43,15 @@ public class Util{
         }
         
         for(int i = 0; i < tempNew.length; i++){ //UNFINISHED
-            if(temp[i] == tempNew[i] && isUsed[i] == false){
-                isUsed[i]
+            for(int j = 0; j < tempOld.length; j++){
+                if(tempOld[j] == tempNew[i] && isUsed[j] == false){
+                    isUsed[j] = true;
+                    output[j] = numbers[i];
+
+                }
             }
         }
+        return output;
     }
 
     public static int[] insertionSort(int[] input){
