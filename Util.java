@@ -30,15 +30,12 @@ public class Util{
         return diff;
     }
 
-    // public static int chainAddition(int num){
-    //     int numDigits = String.valueOf(num).length();
-    //     int addedDigits = 0;
-    //     int newNumber = num * Math.pow(10, numDigits);
-
-    //     newNumber += chainAdditionDiscard(num);
-
-    //     return newNumber;
-    // }
+    public static int chainAddition(int num){
+        String stringVersion = String.valueOf(num);
+        stringVersion = stringVersion.concat(chainAdditionDiscard(num));
+        return Integer.parseInt(stringVersion);
+    }
+    
     public static int chainAdditionDiscard(int num){
         String newNumString = "";
         String stringVersion = String.valueOf(num);
