@@ -30,18 +30,18 @@ public class Util{
         return diff;
     }
 
-    public static int chainAddition(int num){
+    public static long chainAddition(long num){
         String stringVersion = String.valueOf(num);
-        stringVersion = stringVersion.concat(chainAdditionDiscard(num));
-        return Integer.parseInt(stringVersion);
+        stringVersion = stringVersion.concat(String.valueOf(chainAdditionDiscard(num)));
+        return Long.parseLong(stringVersion);
     }
-    
-    public static int chainAdditionDiscard(int num){
+
+    public static long chainAdditionDiscard(long num){
         String newNumString = "";
         String stringVersion = String.valueOf(num);
         for(int i = 0; i < stringVersion.length(); i++){
             newNumString = newNumString.concat(String.valueOf(modAddition(stringVersion.charAt(i)-'0', stringVersion.charAt((i+1)%stringVersion.length())-'0')));
         }
-        return Integer.parseInt(newNumString);
+        return Long.parseLong(newNumString);
     }
 }
