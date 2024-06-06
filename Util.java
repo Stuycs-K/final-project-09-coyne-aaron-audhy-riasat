@@ -156,20 +156,26 @@ public class Util{
             else lengths[i+1] = lengths[i] + 1;
 
         }
-        
+        //System.out.println("LENGTHS: " + arrayToString(lengths));
 
         int[] newInput = new int[input.length];
         int next = 0;
         for(int i = 0; i < input.length; i+= key.length){
-            for(int j = 0; (j < key.length) && (j < lengths[i]) && (i+j < input.length); j++){
+            for(int j = 0; (j < key.length) && (j < lengths[i/key.length]) && (i+j < input.length); j++){
                 newInput[i+j] = input[next];
+                next++;
+                //System.out.print(next + " ");
             }
         }
         for(int i = 0; i < input.length; i+= key.length){
-            for(int j = key.length - lengths[0]; (j < key.length) && (i+j < input.length); j++){
+            for(int j = lengths[i/key.length]; (j < key.length) && (i+j < input.length) /*(next < input.length)*/ ;j++){
                 newInput[i+j] = input[next];
+                next++;
+                //System.out.print(next + " / " + newInput[i+j] + " ------ ");
             }
+            //System.out.println("PASSED");
         }
+        //System.out.println(arrayToString(newInput));
         return columnarTransposition(newInput, key);
     }
 
