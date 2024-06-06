@@ -7,6 +7,7 @@ public class Util{
         System.out.println(arrayToString(sequenceLetters("OCTOPUS")));
         System.out.println(arrayToString(sequenceNumbers(new int[]{9,0,2,1,0})));
         System.out.println(arrayToString(columnarTransposition(new int[]{8,3,4,1,9,4,8,1,0,7,4,1,6,4,0,0,2,5,0,4,4,1,9,5,0,5,8,8,5,8,0,9,6,8,0,0,2,0,2,4,6,6,7,3,4,6,2,1,0,1,0,7,7,6,0,4,7,3,0,3,8,8,5,8,0,9,0,5,1,0,7,6,4,7,0,0,4,3,2,7,2,8,8,8,8,5,8,0,8,3,7,0,7,0,7,0,1,4,6,4,3,2,6,5,0,9,4,0,9,5,3,4,8,8,2,5,0,2,5,8,5,4,9,4,8,4,8,1,4,3,6,4,6,8,3,7,2,0,4,7,3,1,0,9,5,3,2,0,4,9}, new int[]{3,6,5,3,4,6,9,3,2,3,3,9,2,8})));
+        System.out.println(arrayToString(diagonalTransposition(new int[]{0,9,2,0,0,2,7,4,5,3,4,6,8,6,0,1,8,1,3,8,4,8,0,5,7,7,7,8,6,8,8,3,1,5,9,6,3,7,0,2,5,3,9,1,1,0,1,8,3,0,9,8,8,0,7,5,0,7,9,7,0,0,4,7,9,4,0,2,7,0,2,7,9,9,2,9,0,6,2,8,0,8,6,0,6,5,4,2,0,4,0,4,8,3,2,4,0,3,0,8,3,3,6,5,4,8,1,1,4,4,8,1,8,0,3,5,2,4,3,4,8,6,4,0,8,4,4,4,7,8,4,0,0,5,4,7,0,5,6,2,1,5,4,6,5,8,0,5,4,0}, new int[]{9,4,7,3,5,2,3,6,2,7,0,3,9,8,1,3,4})));
     }
     public static int[] digitEncode(int[] input, int[] key){
         int[] output = new int[input.length];
@@ -131,9 +132,32 @@ public class Util{
     }
 
     public static int[] diagonalTransposition(int[] input, int[] key){
-        int[] lengths = new int[input.length/key.length + 1];
+        int[] lengths;
+        if(input.length % key.length == 0) lengths = new int[input.length/key.length];
+        else lengths = new int[input.length/key.length + 1];
+        int[] numbers = new int[]{1,2,3,4,5,6,7,8,9,0};
+        int[] starts = new int[key.length];
+        int nextStart = 0;
+        for(int i = 0; i < numbers.length; i++){
+            for(int j = 0; j < key.length; j++){
+                if(numbers[i] == key[j]) {
+                    starts[nextStart] = j;
+                    nextStart++;
+                }
+            }
+        }
+        nextStart = 1;
+        lengths[0] = starts[0];
+        for(int i = 0; i < lengths.length - 1; i++){
+            if(lengths[i] == key.length){
+                lengths[i+1] = starts[nextStart];
+                nextStart++;
+            }
+            else lengths[i+1] = lengths[i] + 1;
+
+        }
         
-        
+
         int[] newInput = new int[input.length];
         int next = 0;
         for(int i = 0; i < input.length; i+= key.length){
