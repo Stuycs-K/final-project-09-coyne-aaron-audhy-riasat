@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Util{
     //
     public static void main(String[] args){
-        //int[] digits = digitEncode(new int[]{9,0,2,1,0}, new int[]{6,0,1,3,5,8,9,4,2,7});
         
         System.out.println(arrayToString(sequenceLetters("OCTOPUS")));
         System.out.println(arrayToString(sequenceNumbers(new int[]{9,0,2,1,0})));
@@ -45,10 +44,7 @@ public class Util{
             }
         }
         return output;
-    }
-        
-
-    
+    }          
 
     public static int[] sequenceLetters (String input){
         int[] temp = new int[input.length()];
@@ -132,6 +128,25 @@ public class Util{
         }
         return output;
             
+    }
+
+    public static int[] diagonalTransposition(int[] input, int[] key){
+        int[] lengths = new int[input.length/key.length + 1];
+        
+        
+        int[] newInput = new int[input.length];
+        int next = 0;
+        for(int i = 0; i < input.length; i+= key.length){
+            for(int j = 0; (j < key.length) && (j < lengths[i]) && (i+j < input.length); j++){
+                newInput[i+j] = input[next];
+            }
+        }
+        for(int i = 0; i < input.length; i+= key.length){
+            for(int j = key.length - lengths[0]; (j < key.length) && (i+j < input.length); j++){
+                newInput[i+j] = input[next];
+            }
+        }
+        return columnarTransposition(newInput, key);
     }
 
     public static String arrayToString(int[] input){
