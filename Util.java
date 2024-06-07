@@ -62,20 +62,17 @@ public class Util{
         return diff;
     }
 
-    // public static long chainAddition(long num){
-    //     String stringVersion = String.valueOf(num);
-    //     stringVersion = stringVersion.concat(String.valueOf(chainAdditionDiscard(num)));
-    //     return Long.parseLong(stringVersion);
-    // }
+    public static int[] chainAddition(int[] num){
+        int[] newNum = new int[num.length*2];
+        int[] add = chainAdditionDiscard(num);
 
-    // public static long chainAdditionDiscard(long num){
-    //     String newNumString = "";
-    //     String stringVersion = String.valueOf(num);
-    //     for(int i = 0; i < stringVersion.length(); i++){
-    //         newNumString = newNumString.concat(String.valueOf(modAddition(stringVersion.charAt(i)-'0', stringVersion.charAt((i+1)%stringVersion.length())-'0')));
-    //     }
-    //     return Long.parseLong(newNumString);
-    // }
+        for(int i = 0; i < newNum.length; i++){
+            if (i < num.length) newNum[i] = num[i];
+            else newNum[i] = add[i-num.length];
+        }
+
+        return newNum;
+    }
 
     public static int[] chainAdditionDiscard(int[] num){
         int[] newNum = new int[num.length];
