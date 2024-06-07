@@ -80,6 +80,12 @@ public class Util{
         return newNum;
     }
 
+    public static int findIndex(char[] text, char c){
+        int index = -1;
+        for(int i = 0; i < text.length; i++) if(text[i] == c) index = i;
+        return index;
+    }
+
     public static int[] straddlingCheckerboard(String plainText, int[] key, String commonLetters){
         /*
         Implementation Steps:
@@ -116,7 +122,7 @@ public class Util{
             if(row0[i] == ' ' && filled == 1) columns[1] = key[i];
         }
 
-        
+
 
         return null;
     }
