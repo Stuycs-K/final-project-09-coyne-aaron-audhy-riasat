@@ -61,21 +61,6 @@ public class Util{
 
         return diff;
     }
-    // public static int modSubtraction(int a, int b){
-    //     int diff = 0;
-
-    //     int numDigits = 0;
-    //     if (a > b) numDigits = a;
-    //     else numDigits = b;
-    //     numDigits = String.valueOf(numDigits).length();
-
-    //     for(int i = 0; i < numDigits; i++){
-    //         if(a%Math.pow(10,i+1) - a%Math.pow(10,i) >= b%Math.pow(10,i+1) - b%Math.pow(10,i)) diff += (a%Math.pow(10,i+1) - a%Math.pow(10,i)) - (b%Math.pow(10,i+1) - b%Math.pow(10,i));
-    //         else diff += (a%Math.pow(10,i+1) - a%Math.pow(10,i) + Math.pow(10,i+1)) - (b%Math.pow(10,i+1) - b%Math.pow(10,i));
-    //     }
-
-    //     return diff;
-    // }
 
     // public static long chainAddition(long num){
     //     String stringVersion = String.valueOf(num);
@@ -91,4 +76,10 @@ public class Util{
     //     }
     //     return Long.parseLong(newNumString);
     // }
+
+    public static int[] chainAdditionDiscard(int[] num){
+        int[] newNum = new int[num.length];
+        for(int i = 0; i < num.length; i++) newNum[i] = (num[i] + num[(i+1)%num.length])%10;
+        return newNum;
+    }
 }
