@@ -56,3 +56,13 @@ Created the files to start coding. Currently working on implementing digit by di
 ### 2024-06-03
 
 Finished implementing modAddition and modSubtraction. Halfway done with chain addition.
+
+### 2024-06-05
+
+Implemented chain addition.
+
+### 2024-06-07
+
+Before Class:
+Re-implemented modAddition, modSubtraction, and chain addition in int[] to work better with some of the stuff Aaron has written (also because it looks like this'll be better long term)
+Mapping out how to implement the straddling checkerboard.
