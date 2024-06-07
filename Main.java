@@ -1,5 +1,10 @@
 public class Main{
     public static void main(String[] args){
-        System.out.println(Util.modSubtraction(1234,6789));
+        int a[] = {7,3,4};
+        int b[] = {5,8,4,5,6};
+        int sum[] = Util.modAddition(a, b);
+
+        for(int i = 0; i < sum.length; i++) System.out.print(sum[i] + ",");
+        System.out.println();
     }
 }
