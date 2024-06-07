@@ -68,6 +68,7 @@ Re-implemented modAddition, modSubtraction, and chain addition in int[] to work 
 Mapping out how to implement the straddling checkerboard.
 Finished the plan:
 Implementation Steps:
+
         MAKING THE GRID:
         1. Make a char[] containing the commonLetters called commonLetters[]
         2. Make a int[2] called columns.
@@ -75,9 +76,7 @@ Implementation Steps:
         4. Make find(char[] text, char c) which returns the index of c in text or -1 if it's not there.
         5. Make char[] row1 and char[] row2
         6. Loop through the letters in the alphabet, and if a letter is not found in commonLetters[] then add it to row1, or if it's full, row2,
-           Then add . and / to the end of row2.
-        
-        USING THE GRID:
+           Then add . and / to the end of row2.USING THE GRID:
         7. Make an arrayList called cipherText.
         8. Loop through plainText:
             - Use find() to check for the characters in commonLetters[], row1[], row2[] in that order
