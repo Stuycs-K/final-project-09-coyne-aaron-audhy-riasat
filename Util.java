@@ -122,7 +122,25 @@ public class Util{
             if(row0[i] == ' ' && filled == 1) columns[1] = key[i];
         }
 
+        char row1[] = new char[10];
+        char row2[] = new char[10];
+        filled = 0;
+        for(int i = 0; i < 26; i++){
+            if(findIndex(row0, (char)(i+'A')) == -1 && filled < 10){
+                row1[filled] = (char)(i+'A');
+                filled++;
+            } 
+            else if(findIndex(row0, (char)(i+'A')) == -1 && filled >= 10){
+                row2[filled-10] = (char)(i+'A');
+                filled++;
+            }
+        }
+        row2[8] = '.';
+        row2[9] = '/';
 
+        System.out.println(commonLetters);
+        System.out.println(row1);
+        System.out.println(row2);
 
         return null;
     }
