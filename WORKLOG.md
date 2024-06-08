@@ -88,4 +88,11 @@ Implementation Steps:
                 - Add an 80 after as well IF the next character is NOT a digit OR this is the last digit
         9. Make an int[] with the length of the arrayList and transfer the contents
         10. Return the int[]
-Working on implementing.  
+Working on implementing.
+Finished steps 1-6 before class.
+
+During & After Class:
+Implemented and debugged steps 7-10.
+
+### 2024-06-08
+Fixed the last issue for straddling checkerboard, which was that the capitalization for the plaintext wasn't the same (made them all capital).
