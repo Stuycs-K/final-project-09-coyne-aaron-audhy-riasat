@@ -65,9 +65,11 @@ Implemented chain addition.
 
 Before Class:
 Re-implemented modAddition, modSubtraction, and chain addition in int[] to work better with some of the stuff Aaron has written (also because it looks like this'll be better long term)
+
 Mapping out how to implement the straddling checkerboard.
-Finished the plan:
+
 Implementation Steps:
+
 
         MAKING THE GRID:
         1. Make a char[] containing the commonLetters called commonLetters[]
