@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Util{
     public static int[] modAddition(int[] a, int[] b){
         int numDigits = 0;
@@ -87,29 +89,6 @@ public class Util{
     }
 
     public static int[] straddlingCheckerboard(String plainText, int[] key, String commonLetters){
-        /*
-        Implementation Steps:
-        MAKING THE GRID:
-        1. Make a char[] containing the commonLetters called commonLetters[]
-        2. Make a int[2] called columns.
-        3. Look through commonLetters[] for the 2 indexes with ' '(ASCII 32) and set columns[i] = key[index]
-        4. Make find(char[] text, char c) which returns the index of c in text or -1 if it's not there.
-        5. Make char[] row1 and char[] row2
-        6. Loop through the letters in the alphabet, and if a letter is not found in commonLetters[] then add it to row1, or if it's full, row2,
-           Then add . and / to the end of row2.
-        
-        USING THE GRID:
-        7. Make an arrayList called cipherText.
-        8. Loop through plainText:
-            - Use find() to check for the characters in commonLetters[], row1[], row2[] in that order
-            - If found in commonLetters[] just append the corresponding index's number from key[] to the arrayList
-            - If found in row1[] or row2[], precede that with the appropriate column[] number
-            - If its a digit, do 80 followed by the digit 3x
-                - Do this IF this is the first character of the text OR the previous one was not a digit
-                - Add an 80 after as well IF the next character is NOT a digit OR this is the last digit
-        9. Make an int[] with the length of the arrayList and transfer the contents
-        10. Return the int[]
-        */
         char row0[] = commonLetters.toCharArray();
 
         int columns[] = new int[2];
@@ -137,11 +116,37 @@ public class Util{
         }
         row2[8] = '.';
         row2[9] = '/';
+        
+        ArrayList<Integer> cipherText = new ArrayList<Integer>();
+        char[] text = plainText.toUpperCase().toCharArray();
 
-        System.out.println(commonLetters);
-        System.out.println(row1);
-        System.out.println(row2);
+        for(int i = 0; i < text.length; i++){
+            if(text[i] != ' ' && findIndex(row0, text[i]) != -1){
+                cipherText.add(key[findIndex(row0, text[i])]);
+            }
+            else if(findIndex(row1,text[i]) != -1){
+                cipherText.add(columns[0]);
+                cipherText.add(key[findIndex(row1,text[i])]);
+            }
+            else if(findIndex(row2,text[i]) != -1){
+                cipherText.add(columns[1]);
+                cipherText.add(key[findIndex(row2,text[i])]);
+            }
+            else if(Character.isDigit(text[i])){
+                if(i == 0 || Character.isDigit(text[i-1]) == false){
+                    cipherText.add(8);
+                    cipherText.add(0);
+                }
+                for(int j = 0; j < 3; j++) cipherText.add((int)text[i]-'0');
+                if(i == text.length-1 || Character.isDigit(text[i+1]) == false){
+                    cipherText.add(8);
+                    cipherText.add(0);
+                }
+            }
+        }
 
-        return null;
+        int finalCipher[] = new int[cipherText.size()];
+        for(int i = 0; i < finalCipher.length; i++) finalCipher[i] = cipherText.get(i);
+        return finalCipher;
     }
 }
