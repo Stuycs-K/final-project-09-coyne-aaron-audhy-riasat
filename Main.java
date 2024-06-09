@@ -8,14 +8,9 @@ public class Main{
         String commonLetters = "AT ONE SIR";
         int cipher[] = Util.straddlingCheckerboard("Attack at dawn. By dawn I mean 0500. Not 0915 like you did last time.", key, commonLetters);
         //for(int i = 0; i < sum.length; i++) System.out.print(sum[i] + ",");
-        int c = 0;
         for(int i = 0; i < cipher.length; i++){
             System.out.print(cipher[i]);
-            c++;
-            if(c == 5){
-                System.out.print(" ");
-                c = 0;
-            }
+            if(i%5==4) System.out.print(" ");
         }
 
         System.out.println();
