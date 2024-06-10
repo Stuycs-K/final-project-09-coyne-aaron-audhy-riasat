@@ -39,6 +39,8 @@ Modified code to take input.
 
 Wrote the instructions in README.MD
 
+Recorded the video.
+
 ## RIASAT AUDHY
 
 ### 2024-05-23
@@ -115,3 +117,6 @@ Wrote the entire PRESENTATION.MD
 Wrote an undo straddling checkerboard function.
 
 Filled out project name & overview in README.MD
+
+Recorded the video.
+Cropped and uploaded the video.
