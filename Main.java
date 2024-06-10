@@ -23,11 +23,60 @@ public class Main{
 
         System.out.println(Util.arrayToString(ciphertext));
     }
-
+    public static String decrypt(String phrase, int[] date, int personalNumber, int[] ciphertext){
+        int[] keyGroup = new int[5];
+        int e = date[date.length - 1];
+        int nextKeyDigit = 0;
+        int next = 0;
+        int[] intermediate3 = new int[ciphertext.length - 5];
+        for(int i = 0; i < ciphertext.length; i++){
+            if(i >= ciphertext.length - (e*5) && nextKeyDigit < 5){
+                keyGroup[nextKeyDigit] = ciphertext[i];
+                nextKeyDigit++;
+            }
+            else{
+                intermediate3[next] = ciphertext[i];
+                next++;
+            }
+        }
+        int[][] keys = generateKeys(phrase, date, personalNumber, keyGroup);
+        int[] intermediate2 = Util.diagonalTransposition(intermediate3, keys[1]);
+        int[] intermediate1 = Util.columnarTransposition(intermediate2, keys[0]);
+        
+        return "";
+        
+    }
     public static int[] encrypt(String phrase, int[] date, int personalNumber, int[] keyGroup, String message){
+        int[][] keys = generateKeys(phrase, date, personalNumber, keyGroup);
+        System.out.println("Line-Q: " + Util.arrayToString(keys[0]));
+        System.out.println("Line-R: " + Util.arrayToString(keys[1]));
+        System.out.println("Line-S: " + Util.arrayToString(keys[2]));
+        String commonLetters = "AT ONE SIR";
+        int[] intermediate1 = Util.straddlingCheckerboard(message, keys[2], commonLetters);
+        System.out.println("intermediate1: " + Util.arrayToString(intermediate1) + "\n");
+        
+        int[] intermediate2 = Util.columnarTransposition(intermediate1, keys[0]);
+        System.out.println("intermediate2: " + Util.arrayToString(intermediate2) + "\n");
+        int[] intermediate3 = Util.diagonalTransposition(intermediate2, keys[1]);
+        int[] ciphertext = new int[intermediate3.length + 5];
+        int next = 0;
+        int nextKeyDigit = 0;
+        for(int i = 0; i < ciphertext.length; i++){
+            if(i >= ciphertext.length - (date[5]*5) && nextKeyDigit < 5){
+                ciphertext[i] = keyGroup[nextKeyDigit];
+                nextKeyDigit++;
+            }
+            else{
+                ciphertext[i] = intermediate3[next];
+                next++;
+            }
+        }
+        return ciphertext;
+    }
+    
+    public static int[][] generateKeys(String phrase, int[] date, int personalNumber, int[] keyGroup){
         //lineB
         int[] lineB = new int[5];
-        int L = date[5];
         for(int i = 0; i < 5; i++){
             lineB[i] = date[i];
         }
@@ -101,27 +150,14 @@ public class Main{
         //lineS
         int[] lineS = Util.sequenceNumbers(linesK_P[4]);
         System.out.println("Line-S: " + Util.arrayToString(lineS));
-        //Encrypt
-        String commonLetters = "AT ONE SIR";
-        int[] intermediate1 = Util.straddlingCheckerboard(message, lineS, commonLetters);
-        System.out.println("intermediate1: " + Util.arrayToString(intermediate1) + "\n");
-        System.out.println("Line-Q: " + Util.arrayToString(lineQ));
-        int[] intermediate2 = Util.columnarTransposition(intermediate1, lineQ);
-        System.out.println("intermediate2: " + Util.arrayToString(intermediate2) + "\n");
-        int[] intermediate3 = Util.diagonalTransposition(intermediate2, lineR);
-        int[] ciphertext = new int[intermediate3.length + 5];
-        int next = 0;
-        int nextKeyDigit = 0;
-        for(int i = 0; i < ciphertext.length; i++){
-            if(i >= ciphertext.length - (L*5) && nextKeyDigit < 5){
-                ciphertext[i] = keyGroup[nextKeyDigit];
-                nextKeyDigit++;
-            }
-            else{
-                ciphertext[i] = intermediate3[next];
-                next++;
-            }
-        }
-        return ciphertext;
+        int[][] keys = new int[3][];
+        keys[0] = new int[lineQ.length];
+        keys[1] = new int[lineR.length];
+        keys[2] = new int[lineS.length];
+        for(int i = 0; i < lineQ.length; i++) keys[0][i] = lineQ[i];
+        for(int i = 0; i < lineR.length; i++) keys[1][i] = lineR[i];
+        for(int i = 0; i < lineS.length; i++) keys[2][i] = lineS[i];
+        return keys;
+        
     }
 }
