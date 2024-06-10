@@ -88,3 +88,13 @@ By Riasat Audhy & Aaron Coyne
 7. Apply chain addition to the number in step 6, except this time only keep the newly generated 10 digits. Repeat this 4 more times, each time just keeping the newly generated digits, for a total of 50 pseudo-random digits.
 
    
+### PART 2: CREATING THE STRADDLING CHECKERBOARD
+![image](https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/assets/88259584/32934e29-437e-4162-aaf4-cebeab221f94)
+
+Components:
+- Key (top row)
+- Common letters (second row)
+- Remaining letters, '.', and '/' (third row)
+- First Column
+
+  
