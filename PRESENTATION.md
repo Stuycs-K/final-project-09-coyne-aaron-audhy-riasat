@@ -148,4 +148,17 @@ Encoded Message: 96228088811180493866087
 ### PART 3: ENCRYPTING THE MESSAGE
 
 1. Encode the message following the steps in part 2.
-2. Then
+2. Standard Columnar Transposition stuff???
+3. Diagonal Columnar Transposition stuff???
+4. Insert the keygroup `N*5` digits from the end of the cipher text.
+   - `N` is the 6th (unused) digit of the date.
+  
+
+### PART 4: DECRYPTING CIPHER TEXT
+
+1. ????
+
+
+### NOTES
+
+???
