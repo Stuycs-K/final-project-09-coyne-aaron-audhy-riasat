@@ -223,11 +223,20 @@ Encoded Message: 96228088811180493866087
 ### PART 4: DECRYPTING CIPHER TEXT
 
 1. Extract the keygroup by looking at the 6th digit of the date.
-2. Go through the steps in part 1 and steps 2-3 of part 3 to generate the necessary numbers for the transposition and checkerboard keys.
-3. Transposition stuff????
-4. Transposition stuff????
-5. Generate the straddling checkerboard following part 2.
-6. Go through the digits of the cipher text in order to decrypt with the checkerboard:
+2. Go through the steps in part 1 and steps 2-4 of part 3 to generate the necessary numbers for the transposition and checkerboard keys.
+3. Undo the diagonal columnar transposition:
+   - First list out the encoded text so that the number of rows matches the length of the second key from step 4 of part 3.
+   - Then swap the rows and columns so that the first column becomes the first row and so on.
+   - List out the key above the rows. The row length should now match the key length.
+   - Move around the columns such that the first column is moved to the column corresponding to the lowest value key digit (0 is the highest value).
+   - Mark the triangular sections using the same logic used to create them in step 6 of part 3 (stopping at the column with the next lowest key digit and then increasing the size by 1 and repeating after reaching the key length).
+   - List out the digits from each row one after the other, excluding the triangular sections.
+   - Then add the triangular sections, starting from the top row.
+5. Undo the standard columnar transposition by repeating step 3.
+   - Do not mark out triangular sections this time. Keep the rows intact.
+   - Use the first key from step 4 of part 3 instead of the second.
+7. Generate the straddling checkerboard following part 2.
+8. Go through the digits of the cipher text in order to decrypt with the checkerboard:
    - If the next two digits are 80, substitute every 3 following digits with the number being repeated, until the next 80.
      ```
      EX: 8033344499980
