@@ -14,10 +14,10 @@ public class Main{
         }
         */
         String phrase = "IDREAMOFJEANNIEWITHT";
-        int[] date = new int[]{7,4,1,7,7,6};
-        int personalNumber = 8;
-        int[] keyGroup = new int[]{7,7,6,5,1};
-        String message = "We are pleased to hear of your success in establishing your false identity You will be sent some money to cover expenses within a month";
+        int[] date = new int[]{6,4,1,8,8,6};
+        int personalNumber = 13;
+        int[] keyGroup = new int[]{8,8,6,5,1};
+        String message = "Vic you will be sent some money before dawn";
 
         int[] ciphertext = encrypt(phrase, date, personalNumber, keyGroup, message);
 
