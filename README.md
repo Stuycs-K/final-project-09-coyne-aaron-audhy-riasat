@@ -21,13 +21,16 @@ Video Link:
 *These are both explained in the presentation file.
 ## Instructions
 
+For all functions:
+```javac Main.java```
+
 Full Encryption:
 
 ```java Main "encode" "[phrase]" "[date]" "[personalNumber]" "[keyGroup]" "[message]" "[commonLetters]"```
 
 [phrase] - >=20 digit phrase. NOTE - ALL CAPITAL LETTERS, NO SPACES (Eg. TWASTHENIGHTBEFORECHRISTMAS)
 
-[date] - MMDDYYYY
+[date] - MMDDYYYY (NO LEADING ZEROS)
 
 [personalNumber] - 1 or 2 digit number
 
