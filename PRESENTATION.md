@@ -152,10 +152,10 @@ Encoded Message: 96228088811180493866087
    - `A` is the second to last digit of the pseudo random block added to the personal number.
    - `B` is the last digit added to the personal number.
    - If the digit for `A` is the same as the one for `B`, go back one until it is different and use that digit instead.
-3. Do a columnar transposition of the 50 digit pseudo-random block.
+3. Do a standard columnar transposition of the 50 digit pseudo-random block.
    - First list out the digits in 10 digit rows.
    - Take the number from step 5 of part 1, generated right before the 50 digit block and use it as a key.
-   - Turn the columns into rows in ascending order of the key digit that each column coresponds to, prioritizing left over right.
+   - Turn the columns into rows in ascending order (0 is last) of the key digit that each column coresponds to, prioritizing left over right.
      ```
      EX: (This is just showing how the transposition works)
      Key: 6 3 2 4 4 1 
@@ -176,17 +176,58 @@ Encoded Message: 96228088811180493866087
 
      Now just read the letters from the new rows from top right to bottom left for the transposed text.
      ```
-6. Insert the keygroup `N*5` digits from the end of the cipher text.
+4. Take the last `A+B` digits of this transposed block.
+   - The first `A` digits are used as the key for the next transposition (step 5).
+   - The remaining `B` digits are used as the key for the following one (step 6).
+5. Do a standard columnar transposition of the encoded message with the first key from step 4.
+6. Do a diagonal columnar transposition of the resulting text with the second key from step 4.
+   - List out the rows the same way as you would at the start of a standard transposition, but do the following:
+     - When you list out the first row, stop the row at the digit prior to the one that would correspond to the lowest key digit.
+     - Start the next row and continue listing out the numbers, but make the row 1 digit longer than the previous one.
+     - Repeat until you have a row that is back to the key length.
+     - Do the last 3 bullet points again, but stop at the 2nd lowest key digit instead of the first.
+     - Repeat with the 3rd lowest and so on, until you have as many rows as you would have if you listed them out like normal and every row was full.
+     - Go back to the first row and fill up these "triangular" gaps with the remaining digits.
+       ```
+       Ex: (Simplified to demonstrate)
+
+       Normal way to list out the rows:
+       Key: 6 3 2 4 4 1 
+            W E A R E D
+            I S C O V E
+            R E D F L E
+            E A T O N C
+            E Q K J E U
+
+       How to list for diagonal (before filling in):
+       Key: 6 3 2 4 4 1 
+            W E A R E 
+            D I S C O V
+            E R 
+            E D F
+            L E E A
+
+       After filling in:
+       Key: 6 3 2 4 4 1 
+            W E A R E T
+            D I S C O V
+            E R O N C E
+            E D F Q K J
+            L E E A E U
+       ```
+   - Do a standard columnar transposition to this new grid.
+7. Insert the keygroup `N*5` digits from the end of the cipher text.
    - `N` is the 6th (unused) digit of the date.
   
 
 ### PART 4: DECRYPTING CIPHER TEXT
 
 1. Extract the keygroup by looking at the 6th digit of the date.
-2. Transposition stuff????
+2. Go through the steps in part 1 and steps 2-3 of part 3 to generate the necessary numbers for the transposition and checkerboard keys.
 3. Transposition stuff????
-4. Generate the straddling checkerboard following step 2.
-5. Go through the digits of the cipher text in order to decrypt with the checkerboard:
+4. Transposition stuff????
+5. Generate the straddling checkerboard following part 2.
+6. Go through the digits of the cipher text in order to decrypt with the checkerboard:
    - If the next two digits are 80, substitute every 3 following digits with the number being repeated, until the next 80.
      ```
      EX: 8033344499980
@@ -222,4 +263,6 @@ Encoded Message: 96228088811180493866087
 
 ### NOTES
 
-???
+- The VIC Cipher is very secure for a pen and paper cipher. However, it should not be used anymore because of two issues excluding how relatively insecure it is compared to modern digital ciphers:
+  - The algorithm was publicly disclosed.
+  - The secret keys needed can be brute forced with modern computers.
