@@ -15,11 +15,13 @@ public class Main{
         else if(args[0].equals("simpleEncode")){
             String message = args[1];
             String commonLetters = args[2];
+            System.out.println(Util.arrayToString(simpleEncrypt(message, commonLetters)));
         }
         else if (args[0].equals("simpleDecode")){
             int[] cipherText = new int[args[1].length()];
             for(int i = 0; i < args[1].length(); i++) cipherText[i] = Integer.parseInt(args[1].substring(i, i+1));
             String commonLetters = args[2];
+            System.out.println(simpleDecrypt(cipherText, commonLetters));
 
         }
         //int[] ciphertext = encrypt(phrase, date, personalNumber, keyGroup, message);
