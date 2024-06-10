@@ -10,8 +10,11 @@ We implemented encoding with the entire algorithm detailed [here]([url](https://
 Additionally, the online encoding and decoding tools for this cipher did not implement the entire cipher, and only followed a small portion of the algorithms in described in the websites linked above. Because of our issues with decoding the entire algorithm and the issues with online tools, we decided to implement a simpler encode and decode only using the portion of the algorithm (Straddling Checkerboard*) that also works with the online tool below.
 
 Compatible Online Tool: https://www.cachesleuth.com/vic.html
+
 Presentation Link: https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/blob/main/PRESENTATION.md
+
 Video Link:
+
 
 *These are both explained in the presentation file.
 ## Instructions
