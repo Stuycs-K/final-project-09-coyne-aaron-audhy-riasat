@@ -20,7 +20,7 @@ By Riasat Audhy & Aaron Coyne
 
 - The final development / evolutionary pinnacle was the VIC cipher that was used in the 1950s by  Reino Häyhänen.
   - It kept the straddling checkerboard & modulo addition.
-  - At this time most Soviet angents used one-time pad ciphers.
+  - At this time most Soviet agents used one-time pad ciphers.
   - It resisted all cryptanalysis by the NSA until Häyhänen defected.
 
 ## HOW IT WORKS
