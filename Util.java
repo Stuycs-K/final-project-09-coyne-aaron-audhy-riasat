@@ -263,7 +263,10 @@ public class Util{
 
     public static int[] chainAdditionDiscard(int[] num){
         int[] newNum = new int[num.length];
-        for(int i = 0; i < num.length; i++) newNum[i] = (num[i] + num[(i+1)%num.length])%10;
+        for(int i = 0; i < num.length; i++){
+            if(i < num.length-1) newNum[i] = (num[i] + num[i+1])%10;
+            else if (i == num.length-1) newNum[i] = (num[i] + newNum[0])%10;
+        }
         return newNum;
     }
 
