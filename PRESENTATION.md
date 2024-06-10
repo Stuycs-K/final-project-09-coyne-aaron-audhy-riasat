@@ -148,9 +148,35 @@ Encoded Message: 96228088811180493866087
 ### PART 3: ENCRYPTING THE MESSAGE
 
 1. Encode the message following the steps in part 2.
-2. Standard Columnar Transposition stuff???
-3. Diagonal Columnar Transposition stuff???
-4. Insert the keygroup `N*5` digits from the end of the cipher text.
+2. Generate `A` and `B`
+   - `A` is the second to last digit of the pseudo random block added to the personal number.
+   - `B` is the last digit added to the personal number.
+   - If the digit for `A` is the same as the one for `B`, go back one until it is different and use that digit instead.
+3. Do a columnar transposition of the 50 digit pseudo-random block.
+   - First list out the digits in 10 digit rows.
+   - Take the number from step 5 of part 1, generated right before the 50 digit block and use it as a key.
+   - Turn the columns into rows in ascending order of the key digit that each column coresponds to, prioritizing left over right.
+     ```
+     EX: (This is just showing how the transposition works)
+     Key: 6 3 2 4 4 1 
+          W E A R E D
+          I S C O V E
+          R E D F L E
+          E A T O N C
+          E Q K J E U
+
+     Transposes To (the number on the left is just to show the key and NOT kept):
+     
+     1 D E E C U
+     2 A C D T K
+     3 E S E A Q
+     4 R O F O J
+     4 E V L N E
+     6 W I R E E
+
+     Now just read the letters from the new rows from top right to bottom left for the transposed text.
+     ```
+6. Insert the keygroup `N*5` digits from the end of the cipher text.
    - `N` is the 6th (unused) digit of the date.
   
 
