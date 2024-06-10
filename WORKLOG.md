@@ -29,6 +29,16 @@ Working on implementing digit encode. Will implement sequencing next.
 
 Finished digit encode & working on sequencing.
 
+### 2024-06-09 (And 06/10 after midnight)
+
+Put together all of the functions we wrote for encoding (whole algorithm). Did decoding until transposition (whole algorithm).
+
+Put together the simplified encode and decode.
+
+Modified code to take input. 
+
+Wrote the instructions in README.MD
+
 ## RIASAT AUDHY
 
 ### 2024-05-23
@@ -98,3 +108,10 @@ Implemented and debugged steps 7-10.
 
 ### 2024-06-08
 Fixed the last issue for straddling checkerboard, which was that the capitalization for the plaintext wasn't the same (made them all capital).
+
+### 2024-06-09 (And 06/10 after midnight)
+Wrote the entire PRESENTATION.MD
+
+Wrote an undo straddling checkerboard function.
+
+Filled out project name & overview in README.MD
