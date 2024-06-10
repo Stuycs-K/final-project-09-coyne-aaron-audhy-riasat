@@ -16,8 +16,10 @@ Compatible Online Tool: https://www.cachesleuth.com/vic.html
 Presentation Link: https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/blob/main/PRESENTATION.md
 
 Video Link: https://drive.google.com/file/d/1Mf47vC4QTMn0RqMwSXsrmllL_rS7WwQy/view?usp=sharing
-Note - Video is ~15 minutes long.
 
+Note - Video is ~15 minutes long .
+
+There is also about 15 seconds that is part of a section of recording we meant to crop out but missed while editing.
 
 *These are both explained in the presentation file.
 ## Instructions
