@@ -120,11 +120,8 @@ Go through the characters in the message being encoded in order.
 - If the character is a digit, substitute it with itself repeated three times.
   - Precede and follow any series of digits with 80, indicating that the numbers inbetween represent numbers & not letters.
 
-
-![image](https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/assets/88259584/0463c08e-0057-4cd1-bf78-a17c36d612a9)
-
 ```
-EX: Encoding "THE 81ST NUM." with the checkerboard above
+EX: Encoding "THE 81ST NUM." with the checkerboard below
 
 T -> 9
 H -> 62
@@ -142,6 +139,11 @@ M -> 60
 
 Encoded Message: 96228088811180493866087
 ```
+
+
+![image](https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/assets/88259584/0463c08e-0057-4cd1-bf78-a17c36d612a9)
+
+
 
 ### PART 3: ENCRYPTING THE MESSAGE
 
