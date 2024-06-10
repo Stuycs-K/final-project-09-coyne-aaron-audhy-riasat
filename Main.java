@@ -1,27 +1,22 @@
 public class Main{
     public static void main(String[] args){
-        // int a[] = {9,0,2,1,0};
-        // int b[] = {6,7,8,9};
-        // int sum[] = Util.chainAddition(a);
-        /* 
-        int key[] = {5,9,6,1,3,2,8,4,7,0};
-        String commonLetters = "AT ONE SIR";
-        int cipher[] = Util.straddlingCheckerboard("Attack at dawn. By dawn I mean 0500. Not 0915 like you did last time.", key, commonLetters);
-        //for(int i = 0; i < sum.length; i++) System.out.print(sum[i] + ",");
-        for(int i = 0; i < cipher.length; i++){
-            System.out.print(cipher[i]);
-            if(i%5==4) System.out.print(" ");
-        }
-        */
+        
         String phrase = "IDREAMOFJEANNIEWITHT";
         int[] date = new int[]{6,4,1,8,8,6};
         int personalNumber = 13;
         int[] keyGroup = new int[]{8,8,6,5,1};
+        int[] key = new int[]{0,1,2,3,4,5,6,7,8,9};
         String message = "Vic you will be sent some money before dawn";
-
-        int[] ciphertext = encrypt(phrase, date, personalNumber, keyGroup, message);
-
+        int[] ciphertext = simpleEncrypt(message, key, "AT ONE SIR");
         System.out.println(Util.arrayToString(ciphertext));
+        System.out.println(simpleDecrypt(ciphertext, key, "AT ONE SIR"));
+        //int[] ciphertext = encrypt(phrase, date, personalNumber, keyGroup, message);
+
+        //System.out.println(Util.arrayToString(ciphertext));
+
+        //String plaintext = decrypt(phrase, date, personalNumber, ciphertext);
+
+        //System.out.println(plaintext);
     }
     public static String decrypt(String phrase, int[] date, int personalNumber, int[] ciphertext){
         int[] keyGroup = new int[5];
@@ -39,13 +34,26 @@ public class Main{
                 next++;
             }
         }
+        System.out.println("intermediate3: " + Util.arrayToString(intermediate3) + "\n");
+
         int[][] keys = generateKeys(phrase, date, personalNumber, keyGroup);
         int[] intermediate2 = Util.diagonalTransposition(intermediate3, keys[1]);
+        System.out.println("intermediate2: " + Util.arrayToString(intermediate2) + "\n");
         int[] intermediate1 = Util.columnarTransposition(intermediate2, keys[0]);
-        
-        return "";
+        System.out.println("intermediate1: " + Util.arrayToString(intermediate1) + "\n");
+        String plainText = Util.decodeCheckerBoard(intermediate1, keys[2], "AT ONE SIR");
+        return plainText;
         
     }
+
+    public static int[] simpleEncrypt(String message, int[] key, String commonLetters){
+        return Util.straddlingCheckerboard(message, key, commonLetters);
+    }
+
+    public static String simpleDecrypt(int[] ciphertext, int[] key, String commonLetters){
+        return Util.decodeCheckerBoard(ciphertext, key,commonLetters);
+    }
+
     public static int[] encrypt(String phrase, int[] date, int personalNumber, int[] keyGroup, String message){
         int[][] keys = generateKeys(phrase, date, personalNumber, keyGroup);
         System.out.println("Line-Q: " + Util.arrayToString(keys[0]));

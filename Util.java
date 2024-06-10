@@ -178,6 +178,14 @@ public class Util{
         return columnarTransposition(newInput, key);
     }
 
+    public static int[] decodeDiagonalTransposition(int[] input, int[] key){
+        return null;
+    }
+
+    public static int[] decodeColumnarTransposition(int[] input, int[] key){
+        return null;
+    }
+
     public static String arrayToString(int[] input){
         String output = "";
         for(int i = 0; i < input.length; i++){  
@@ -333,8 +341,63 @@ public class Util{
             }
         }
 
+        
+
         int finalCipher[] = new int[cipherText.size()];
         for(int i = 0; i < finalCipher.length; i++) finalCipher[i] = cipherText.get(i);
         return finalCipher;
     }
+
+    public static String decodeCheckerBoard(int[] cipherText, int[] key, String commonLetters){
+        char row0[] = commonLetters.toCharArray();
+       
+               int columns[] = new int[2];
+               int filled = 0;
+               for(int i = 0; i < row0.length; i++){
+                   if(row0[i] == ' ' && filled == 0){
+                       columns[0] = key[i];
+                       filled = 1;
+                   }
+                   if(row0[i] == ' ' && filled == 1) columns[1] = key[i];
+               }
+       
+               char row1[] = new char[10];
+               char row2[] = new char[10];
+               filled = 0;
+               for(int i = 0; i < 26; i++){
+                   if(findIndex(row0, (char)(i+'A')) == -1 && filled < 10){
+                       row1[filled] = (char)(i+'A');
+                       filled++;
+                   } 
+                   else if(findIndex(row0, (char)(i+'A')) == -1 && filled >= 10){
+                       row2[filled-10] = (char)(i+'A');
+                       filled++;
+                   }
+               }
+               row2[8] = '.';
+               row2[9] = '/';
+            String decoded = "";
+            for(int i = 0; i < cipherText.length; i++){
+         if(i < cipherText.length-1 && cipherText[i] == 8 && cipherText[i+1] == 0){
+           i += 2;
+           while(cipherText[i] != 8 && cipherText[i+1] != 0){
+             decoded += String.valueOf(cipherText[i]);
+             i += 3;
+           }
+           i++;
+         }
+         else if(cipherText[i] == columns[0]){
+           decoded += String.valueOf(row1[cipherText[i+1]]);
+           i++;
+         }
+         else if(cipherText[i] == columns[1]){
+           decoded += String.valueOf(row2[cipherText[i+1]]);
+           i++;
+         }
+         else{
+           decoded += String.valueOf(row0[cipherText[i]]);
+         }
+       }
+       return decoded;
+       }
 }
