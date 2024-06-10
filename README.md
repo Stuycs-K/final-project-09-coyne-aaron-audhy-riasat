@@ -21,7 +21,8 @@ Video Link:
 *These are both explained in the presentation file.
 ## Instructions
 
-For all functions:
+Before running anything:
+
 ```javac Main.java```
 
 Full Encryption:
