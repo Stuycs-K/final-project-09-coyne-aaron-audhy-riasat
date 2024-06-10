@@ -56,11 +56,13 @@ By Riasat Audhy & Aaron Coyne
    - This works by adding the first two digits modulo 10 to create a new digit, and repeat until you reach the last digit to which you add the first newly generated digit.
      ```
      EX: Start with 69592
+     
      6 + 9 = 15 -> 5
      9 + 5 = 14 -> 4
      5 + 9 = 14 -> 4
      9 + 2 = 11 -> 1
      2 + 5 = 07 -> 7
+     
      New Number: 6959254417
      ```
 4. Add the first 10 digit number created in step 2 to the number created in step 3 with digit by digit modular addition.
@@ -68,6 +70,7 @@ By Riasat Audhy & Aaron Coyne
    - This form of encoding involves matching up a number with the digits from 1 to 0 (shown below) with the key. Then replace the digits in the number being encoded with the key digit that matches up with that digit in the 1-0 number.
      ```
      EX: Encode 4966196060 with 6013589427
+     
      1234567890
      6013589427
 
