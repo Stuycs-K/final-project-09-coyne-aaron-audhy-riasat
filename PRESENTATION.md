@@ -176,7 +176,7 @@ Encoded Message: 96228088811180493866087
 
      Now just read the letters from the new rows from top right to bottom left for the transposed text.
      ```
-4. Take the last `A+B` digits of this transposed block.
+4. Take the first `A+B` digits of this transposed block.
    - The first `A` digits are used as the key for the next transposition (step 5).
    - The remaining `B` digits are used as the key for the following one (step 6).
 5. Do a standard columnar transposition of the encoded message with the first key from step 4.
