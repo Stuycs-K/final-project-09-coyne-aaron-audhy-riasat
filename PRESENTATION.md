@@ -120,6 +120,7 @@ Go through the characters in the message being encoded in order.
 - If the character is a digit, substitute it with itself repeated three times.
   - Precede and follow any series of digits with 80, indicating that the numbers inbetween represent numbers & not letters.
 
+
 ![image](https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/assets/88259584/0463c08e-0057-4cd1-bf78-a17c36d612a9)
 
 ```
