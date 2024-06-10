@@ -91,10 +91,51 @@ By Riasat Audhy & Aaron Coyne
 ### PART 2: CREATING THE STRADDLING CHECKERBOARD
 ![image](https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/assets/88259584/32934e29-437e-4162-aaf4-cebeab221f94)
 
-Components:
+#### Components:
 - Key (top row)
 - Common letters (second row)
 - Remaining letters, '.', and '/' (third row)
-- First Column
+- Left Column
 
-  
+#### Steps:
+1. The 10 digit key at the top is created by sequencing the last 10 degits generated in the pseudo random block (step 7 above).
+2. The next row is filled with eight high frequency letters and two gaps/spaces.
+   - This is so the most common letters encrypt to one digit instead of two, compressing the text a little.
+   - Some common mnemonics to remember letters:
+     - 'A SIN TO ER(R)'
+     - 'AT ONE SIR'
+     - 'AERO TINS'
+3. The two numbers in the column on the left are determined by the digits in the key corresponding to the two spaces.
+4. The remaining two rows are filled with the rest of the letters in the alphabet in order, followed by '.' and '/'.
+
+#### Using the checkerboard:
+Go through the characters in the message being encoded in order.
+- Ignore spaces.
+- Ignore capitalization / assume all letters are capitalized.
+- If a letter is found in the first row, it is just substituted by the corresponding key digit.
+- If a character is in the second or third row, it's the same except the key digit is preceded by the left column digit from that row.
+- If the character is a digit, substitute it with itself repeated three times.
+  - Precede and follow any series of digits with 80, indicating that the numbers inbetween represent numbers & not letters.
+```
+EX: Encoding "THE 81ST NUM." with the checkerboard above
+T -> 9
+H -> 62
+E -> 2
+80
+8 -> 888
+1 -> 111
+80
+S -> 4
+T -> 9
+N -> 3
+U -> 86
+M -> 60
+. -> 87
+
+Encoded Message: 96228088811180493866087
+```
+
+### PART 3: ENCRYPTING THE MESSAGE
+
+1. Encode the message following the steps in part 2.
+2. Then
