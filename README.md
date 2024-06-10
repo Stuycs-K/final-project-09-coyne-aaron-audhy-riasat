@@ -21,3 +21,28 @@ Video Link:
 *These are both explained in the presentation file.
 ## Instructions
 
+Full Encryption:
+
+```java Main "encode" "[phrase]" "[date]" "[personalNumber]" "[keyGroup]" "[message]" "[commonLetters]"```
+
+[phrase] - >=20 digit phrase. NOTE - ALL CAPITAL LETTERS, NO SPACES (Eg. TWASTHENIGHTBEFORECHRISTMAS)
+
+[date] - MMDDYYYY
+
+[personalNumber] - 1 or 2 digit number
+
+[keyGroup] - 5 digit number
+
+[message] - Message to be encrypted
+
+[commonLetters] - permutation for the straddling checkerboard. "AT ONE SIR" is commonly used. A permutation consists of 7 Unique letters and two blank spaces.
+
+Simple Encryption:
+
+```java Main "encode" "[message]" "[commonLetters]"```
+
+Simple Decryption:
+
+```java Main "decode" "[cipherText]" "[commonLetters]"```
+
+[cipherText] - DO NOT INCLUDE SPACES. Should consist of numbers, not letters.
