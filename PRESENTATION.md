@@ -30,6 +30,7 @@ By Riasat Audhy & Aaron Coyne
 - A date (just numbers with no leading 0s)
 - A 1 or 2 digit number
 - A 5 digit keygroup
+- 8 common letters
 
 #### These are the general steps:
 1. The things listed above are used to create a 50 digit block of pesudo-random numbers.
@@ -87,8 +88,7 @@ By Riasat Audhy & Aaron Coyne
 
      Encoded Number:3288628787
      ```
-6. Sequence the number from step 5 using the same logic as step 2, except with digits instead of letters.
-7. Apply chain addition to the number in step 6, except this time only keep the newly generated 10 digits. Repeat this 4 more times, each time just keeping the newly generated digits, for a total of 50 pseudo-random digits.
+6. Apply chain addition to the number in step 5, except this time only keep the newly generated 10 digits. Repeat this 4 more times, each time just keeping the newly generated digits, for a total of 50 pseudo-random digits.
 
    
 ### PART 2: CREATING THE STRADDLING CHECKERBOARD
@@ -101,7 +101,7 @@ By Riasat Audhy & Aaron Coyne
 - Left Column
 
 #### Steps:
-1. The 10 digit key at the top is created by sequencing the last 10 degits generated in the pseudo random block (step 7 above).
+1. The 10 digit key at the top is created by sequencing the last 10 degits generated in the pseudo random block (step 6 above).
 2. The next row is filled with eight high frequency letters and two gaps/spaces.
    - This is so the most common letters encrypt to one digit instead of two, compressing the text a little.
    - Some common mnemonics to remember letters:
@@ -156,7 +156,42 @@ Encoded Message: 96228088811180493866087
 
 ### PART 4: DECRYPTING CIPHER TEXT
 
-1. ????
+1. Extract the keygroup by looking at the 6th digit of the date.
+2. Transposition stuff????
+3. Transposition stuff????
+4. Generate the straddling checkerboard following step 2.
+5. Go through the digits of the cipher text in order to decrypt with the checkerboard:
+   - If the next two digits are 80, substitute every 3 following digits with the number being repeated, until the next 80.
+     ```
+     EX: 8033344499980
+
+     80
+     333 -> 3
+     444 -> 4
+     999 -> 9
+     80
+     
+     Decodes To: 3498
+     ```
+   - If a digit is one of the numbers in the left column, look at the next digit and the substitute both with the letter corresponding to the second digit in the row of the first digit.
+   - Otherwise replace the digit with the letter corresponding to that digit in the key from the second row of the checkerboard.
+     ```
+     EX: 66269166296274 (Using the checkerboard below)
+
+     66 -> D
+      2 -> E
+     69 -> C
+      1 -> O
+     66 -> D
+      2 -> E
+      9 -> T
+     62 -> H
+      7 -> I
+      4 -> S
+
+     Decodes To: "DECODETHIS"
+     ```
+![image](https://github.com/Stuycs-K/final-project-09-coyne-aaron-audhy-riasat/assets/88259584/9111ce35-bcfd-4f54-a630-059b91c93712)
 
 
 ### NOTES
