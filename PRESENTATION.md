@@ -53,15 +53,15 @@ By Riasat Audhy & Aaron Coyne
          41253    12345    CAACB
      ```
 3. Extend the 5 digit number from step 1 to 10 digits through "Chain Addition"
-   - This works by adding the first two digits modulo 10 to create a new digit, and repeat until you reach the last digit which is added to the first digit.
+   - This works by adding the first two digits modulo 10 to create a new digit, and repeat until you reach the last digit to which you add the first newly generated digit.
      ```
      EX: Start with 69592
      6 + 9 = 15 -> 5
      9 + 5 = 14 -> 4
      5 + 9 = 14 -> 4
      9 + 2 = 11 -> 1
-     2 + 6 = 08 -> 8
-     New Number: 6959254418
+     2 + 5 = 07 -> 7
+     New Number: 6959254417
      ```
 4. Add the first 10 digit number created in step 2 to the number created in step 3 with digit by digit modular addition.
 5. Digit encode the number from step 4 using the second 10 digit number from step 2 as a key.
